@@ -1,0 +1,21 @@
+.row {
+	@include row;
+}
+
+@for $i from 1 through $grid-columns {
+	.span-#{$i} {
+		@include span($i);
+	}
+}
+
+@for $i from 1 through $grid-columns {
+	.offset-#{$i} {
+		@include offset($i);
+	}
+}
+
+.row {
+	> [class*="span"] {
+		@include span-first;
+	}
+}

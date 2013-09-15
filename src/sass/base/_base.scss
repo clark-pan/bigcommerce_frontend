@@ -1,0 +1,44 @@
+html, body {
+	overflow-x:hidden;
+}
+body {
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:$base-font-size;
+    line-height:$base-line-height;
+    color:$base-font-color;
+}
+
+a {
+    color:$primary-color;
+    text-decoration:none;
+    &:hover {
+        text-decoration:underline;
+    }
+}
+
+h1, .h1 {font-size:$h1-size; margin-top:0; margin-bottom:$base-font-size;}
+h2, .h2 {font-size:$h2-size; margin-top:0; margin-bottom:$base-font-size;}
+h3, .h3 {font-size:$h3-size; margin-top:0; margin-bottom:$base-font-size;}
+h4, .h4 {font-size:$h4-size; margin-top:0; margin-bottom:$base-font-size * 0.5;}
+
+
+//Fix anchors in headings to inherit color of heading
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color:inherit;
+	
+	/*
+		Since ie7 doesn't support inherit, we assume base color
+		Override this on a case by case basis
+	*/
+	.lt-ie8 & {
+		color:$base-font-color;
+	}
+}
+
+img {
+	max-width:100%;
+}
+
+input.placeholder {
+	color:#aaa;
+}

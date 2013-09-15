@@ -1,0 +1,40 @@
+/*
+	Usage :
+	<div class="layout-twocolumn-mainleft">
+		<div class="layout-twocolumn-main">
+
+		</div>
+		<div class="layout-twocolumn-side">
+
+		</div>
+	</div>
+*/
+
+.layout-twocolumn-mainleft {
+	@include row;
+	padding:30px 0;
+	> .layout-twocolumn-main {
+		@include span(9);
+		@include span-first;
+
+	}
+
+	> .layout-twocolumn-side {
+		@include span(3);
+	}
+}
+
+@include breakpoint('tablet') {
+	.layout-twocolumn-mainleft {
+		> .layout-twocolumn-main {
+			@include span(12);
+			@include span-first;
+			margin-bottom:20px;
+		}
+
+		> .layout-twocolumn-side {
+			@include span(12);
+			@include span-first;
+		}
+	}
+}

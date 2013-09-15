@@ -1,0 +1,49 @@
+/*
+	A list of links with an image, title and price
+	Usage :
+
+	<ul class="module-image-list">
+	    <li>
+	        <a href="#">
+	            <span class="module-image-list-image">
+	                <img src="http://placekitten.com/g/68/68" alt=""/>
+	            </span>
+	            <span class="module-image-list-content">
+	                Crumpler Considerable Embarassment Bag<br />
+	                <strong>$89.95</strong>
+	            </span>
+	        </a>
+	    </li>
+	</ul>
+*/
+
+.module-image-list {
+	list-style:none;
+	padding:0;
+	margin:10px 0;
+	li {
+		margin-bottom:20px;
+	}
+	a {
+		display:block;
+		color:$base-font-color;
+		position:relative;
+		padding-left:70px;
+		@include min-height(70px);
+	}
+}
+	.module-image-list-image {
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		width:68px;
+		border:1px solid #888;
+		img {
+			display:block;
+		}
+	}
+	.module-image-list-content {
+		padding:10px;
+		display:block;
+	}

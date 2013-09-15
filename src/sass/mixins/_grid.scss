@@ -1,0 +1,25 @@
+/*
+	12 column grid, 2.5% margin
+*/
+
+$grid-columns:12;
+$grid-margin:.025;
+$grid-column-width:1/$grid-columns * (1 - $grid-margin * ($grid-columns - 1));
+
+@mixin row {
+	@extend .clearfix;
+}
+
+@mixin span($num){
+	width : percentage($num * $grid-column-width + ($num - 1) * $grid-margin);
+	margin-left : percentage($grid-margin);
+	float:left;
+}
+
+@mixin span-first {
+	margin-left:0;
+}
+
+@mixin offset($num){
+	margin-left : percentage($num * ($grid-column-width + $grid-margin) + $grid-margin);
+}

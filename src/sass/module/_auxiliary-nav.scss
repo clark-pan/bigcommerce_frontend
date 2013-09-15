@@ -1,0 +1,38 @@
+/*
+	Usage :
+
+	<nav class="auxiliary-nav">
+	    <ul>
+	        <li><a href="#">Store</a></li>
+	        <li><a href="#">Mac</a></li>
+	        <li><a href="#">iPod</a></li>
+	        <li><a href="#">iPhone</a></li>
+	        <li><a href="#">iPad</a></li>
+	        <li><a href="#">iTunes</a></li>
+	        <li><a href="#">Support</a></li>
+	    </ul>
+	</nav>
+*/
+
+.auxiliary-nav {
+	background:#ddd;
+	ul {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	li {
+		@include inline-block;
+		vertical-align:top;
+	}
+	a {
+		display:block;
+		padding:10px 15px;
+		color:$base-font-color;
+
+		&:hover {
+			background:#ccc;
+			text-decoration: none;
+		}
+	}
+}

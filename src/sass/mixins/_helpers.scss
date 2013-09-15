@@ -1,0 +1,17 @@
+/*
+	Used to construct an inline-block layout, and removing the whitespace bug between the layout items
+	Works by setting parent's fontsize/line-height to 0, and resetting it for its child
+*/
+@mixin inline-block-layout($childSelector, $isChild:true, $font-size:$base-font-size, $line-height:$base-line-height){
+	font-size:0;
+	line-height:0;
+	@if $isChild == true {
+		$childSelector : '> ' + $childSelector;
+	}
+
+	& #{$childSelector} {
+		font-size:$font-size;
+		line-height:$line-height;
+		@include inline-block;
+	}
+}

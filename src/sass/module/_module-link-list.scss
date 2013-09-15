@@ -1,0 +1,37 @@
+/*
+	A list of links
+	Usage : 
+	<ul class="module-link-list">
+		<li>
+		    <a href="#">
+		        <span class="icon icon-rightarrow"></span>
+		        Item
+		    </a>
+		</li>
+	</ul>
+*/
+
+.module-link-list {
+	list-style:none;
+	margin:10px 0;
+	padding:0;
+
+	li {
+		margin-bottom:10px;
+	}
+
+	a {
+		display:block;
+		padding-left:15px;
+		@include min-height(1em);
+		position:relative;
+		color:$base-font-color;
+	}
+
+	.icon-rightarrow {
+		position:absolute;
+		left:2px;
+		top:50%;
+		margin-top:-6px;
+	}
+}

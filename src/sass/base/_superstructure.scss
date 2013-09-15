@@ -1,0 +1,38 @@
+.wrapper {
+	margin:0 auto;
+	max-width: 1170px;
+	padding:0 15px;
+}
+	.header-main {
+		.auxiliary-nav {
+			margin-left:-2000px;
+			margin-right:-2000px;
+			padding-left:2000px;
+			padding-right:2000px;
+		}
+
+		.module-search {
+			float:right;
+			margin:20px 0;
+		}
+
+		.main-nav {
+			clear:both;
+		}
+	}
+
+	.header-main-storename {
+		font-size:2em;
+		font-weight:bold;
+		line-height:30px;
+		float:left;
+		padding:20px 0;
+	}
+
+	.footer-main {
+		margin-left:-2000px;
+		margin-right:-2000px;
+		padding-left:2000px;
+		padding-right:2000px;
+		background:#eee;
+	}

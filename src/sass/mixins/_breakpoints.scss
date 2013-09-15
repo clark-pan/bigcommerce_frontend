@@ -1,0 +1,11 @@
+@mixin breakpoint($name){
+	@if $name == 'tablet' {
+		@media all and (max-width:800px) {
+			@content;
+		}
+	} @else if $name == 'phone' {
+		@media all and (max-width:480px) {
+			@content;
+		}
+	}
+}

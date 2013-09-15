@@ -1,0 +1,93 @@
+/*
+    A list of products with an image, title, price, rating, and button group
+    Usage : 
+    <section class="module-product-list">
+        <ul>
+            <li>
+                <a href="#" class="module-product-image"><img src="http://placekitten.com/g/270/270" alt="" /></a>
+                <h4 class="module-product-list-heading"><a href="#">[Sample Product] MacBook Pro</a></h4>
+                <div class="module-product-list-price">$1,999.00</div>
+                <div class="module-rating" data-value="3" data-product-id="1234">
+                    Rating 3/5
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+*/
+
+.module-product-list {
+    text-align:center;
+
+    > ul {
+        list-style:none;
+        padding:0;
+        margin:0;
+        @include row;
+
+        > li {
+            @include span(4);
+            &:first-child, &.first-child {
+                @include span-first;
+            }
+        }
+    }
+
+    .module-rating {
+        margin:5px 0 10px;
+    }
+}
+    .module-product-image {
+        display:block;
+        border:1px solid #ddd;
+        margin-bottom:12px;
+    }
+
+    .module-product-list-heading {
+        text-decoration:underline;
+        @include min-height(2.8em);
+    }
+
+    .module-product-list-price {
+        font-size:$h3-size;
+        font-style:italic;
+    }
+
+@include breakpoint('phone') {
+    .module-product-list {
+        text-align:left;
+        > ul {
+            > li {
+                @include span(12);
+                @include span-first;
+                position:relative;
+                @include box-sizing(border-box);
+                padding:10px 10px 10px 110px;
+                margin-bottom:10px;
+            }
+        }
+
+        .module-rating {
+            display:inline-block;
+            margin:0 0 5px 10px;
+        }
+    }
+        .module-product-image {
+            position:absolute;
+            margin:0;
+            top:0px;
+            left:0px;
+            width:98px;
+        }
+
+        .module-product-list-heading {
+            min-height:0px;
+        }
+
+        .module-product-list-price {
+            display:inline-block;
+            margin-bottom:5px;
+        }
+}

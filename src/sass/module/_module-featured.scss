@@ -1,0 +1,61 @@
+/*
+	Featured callout with image, title, body, emphasised price and button group
+
+	Usage : 
+
+	<section class="module-featured">
+	    <a href="#"><img src="" alt="iPod Nano" class="module-featured-img" /></a>
+	    <h3>iPod Nano</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, vitae, saepe laboriosam distinctio nulla sequi nesciunt natus laudantium quisquam unde ipsa architecto aspernatur iure tenetur provident in incidunt enim. Earum?</p>
+	    <strong class="module-featured-price">$149.00</strong>
+	    <div class="module-featured-buttons">
+	        <a href="#" class="btn btn-primary">Add to Cart</a>
+	    </div>
+	</section>
+*/
+
+.module-featured {
+	position:relative;
+	background:lighten($primary-color, 45);
+	padding:30px 30px 30px 300px;
+	margin:1em 0;
+	@include min-height(210px);
+}
+	.module-featured-img {
+		border:1px solid $primary-color;
+		width:268px;
+		display:block;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+
+	.module-featured-price {
+		display:block;
+		margin:15px 0;
+		font-weight:bold;
+		font-size:$h2-size;
+		font-style:italic;
+	}
+
+@include breakpoint('tablet'){
+	.module-featured {
+		padding:20px 20px 20px 250px;
+		@include min-height(180px);
+	}
+
+		.module-featured-img {
+			width:218px;
+		}
+}
+
+@include breakpoint('phone'){
+	.module-featured {
+		padding:10px 10px 10px 150px;
+		@include min-height(120px);
+	}
+
+		.module-featured-img {
+			width:138px;
+		}	
+}

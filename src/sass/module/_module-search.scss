@@ -1,0 +1,29 @@
+.module-search {
+	position:relative;
+	padding-right:30px;
+	height:30px;
+
+	.btn {
+		position:absolute;
+		right:0;
+		top:0;
+		@include border-left-radius(0px);
+	}
+
+	.lt-ie8 & {
+		//ie7 box model issue
+		.btn {
+			width:31px;
+			height:31px;
+		}
+	}
+}
+	.module-search-input {
+		border:1px solid #121212;
+		margin:0;
+		padding:5px;
+		line-height:18px;
+		height:18px;
+		width:auto;
+		display:block;
+	}
