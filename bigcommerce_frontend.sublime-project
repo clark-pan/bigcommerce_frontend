@@ -3,7 +3,7 @@
 	[
 		{
 			"path": ".",
-			"folder_exclude_patterns": [".sass-cache", "node_modules"]
+			"folder_exclude_patterns": [".sass-cache", "dest", "bower_components", "node_modules"]
 		}
 	]
 }
