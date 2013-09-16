@@ -42,6 +42,11 @@
 		img {
 			display:block;
 		}
+
+		.lt-ie8 & {
+			//ie7 and below has a tiny gap below the image
+			font-size:0;
+		}
 	}
 	.module-image-list-content {
 		padding:10px;
