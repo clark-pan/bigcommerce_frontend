@@ -5,3 +5,4 @@ node_modules
 src/bower_components
 src/img/icon-*.png
 src/css/
+*.sublime-workspace
