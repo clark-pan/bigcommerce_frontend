@@ -1,0 +1,6 @@
+
+.sass-cache
+dest
+node_modules
+src/bower_components
+src/img/icon-*.png
