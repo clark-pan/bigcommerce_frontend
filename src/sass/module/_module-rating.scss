@@ -1,0 +1,40 @@
+/*
+	A ratings module
+	NOTE: The DOM for this module is constructed via scripting
+
+	Usage : 
+	Pre DOM manipulation
+	<div class="module-rating" data-value="3" data-rating-id="1234">
+		Rating 3/5
+	</div>
+
+	Post DOM manipulation
+	<div class="module-rating" data-value="3" data-rating-id="1234">
+		<label id="module-rating-label-1234" class="visuallyhidden">Rating</label>
+		<label class="module-rating-label">
+			<span class="module-rating-labelvalue">1</span>
+			<input type="radio" aria-describedby="module-rating-label-1234" name="module-rating-1234" value="1" />
+			<span class="icon icon-rating">&nbsp;</span>
+		</label>
+		...etc...
+	</div>
+*/
+
+.module-rating {
+	.js & {
+		@include inline-block-layout('.module-rating-label');
+		display:none;
+	}
+
+	> .module-rating-label {
+		width:13px; height:12px; margin-right:2px; overflow:hidden;
+		position:relative;
+		cursor:pointer;
+		input, .module-rating-labelvalue {
+			position:absolute; top:-20px; left:-20px;
+		}
+		.icon {
+			position:absolute; top:0; left:0;
+		}
+	}
+}
