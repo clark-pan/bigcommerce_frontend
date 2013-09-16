@@ -25,12 +25,8 @@ module.exports = function(grunt){
 				fileNameFormat : '${name}.${ext}?${hash}',
 				renameFiles : false
 			},
-			"build-css" : {
-				src : ['dest/img/*'],
-				dest : 'dest/css/main.css'
-			},
 			"build-html" : {
-				src : ['dest/js/**/*','dest/css/**/*'],
+				src : ['dest/js/*.js','dest/css/*.css'], //Should only need to hash the files in the root of the directory
 				dest : 'dest/*.html'
 			}
 		},
@@ -42,6 +38,14 @@ module.exports = function(grunt){
 					imagesDir : 'src/img'
 				}
 			},
+			clean : {
+				options : {
+					sassDir : 'dest/sass',
+					cssDir : 'dest/css',
+					imagesDir : 'dest/img',
+					clean : true
+				}
+			},
 			prod : {
 				options : {
 					sassDir : 'dest/sass',
@@ -51,6 +55,11 @@ module.exports = function(grunt){
 				}
 			}
 		},
+		modernizr : {
+			devFile : "src/bower_components/modernizr/modernizr.js",
+			outputFile : "dest/bower_components/modernizr/modernizr.js",
+			files : ["dest/css/**/*.css", "dest/{js,lib}/**/*.js"]
+		},
 		watch : {
 			sass : {
 				files : [
@@ -59,6 +68,20 @@ module.exports = function(grunt){
 				],
 				tasks : ['compass:develop'],
 				interrupt : true
+			},
+			livereload : {
+				options : {
+					livereload: 8001
+				},
+				files : 'src/**/*'
+			}
+		},
+		connect : {
+			develop : {
+				options : {
+					base : 'src/',
+					livereload: 8001
+				}
 			}
 		}
 	});
@@ -69,9 +92,12 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-usemin');
+	grunt.loadNpmTasks('grunt-hashres');
+	grunt.loadNpmTasks("grunt-modernizr");
 
 	grunt.registerTask('default', ['build']);
-	grunt.registerTask('build', ['clean:init', 'copy:init', 'compass:prod', 'useminPrepare', 'concat', 'uglify', 'usemin', 'clean:tidy']);
-	grunt.registerTask('develop', ['watch']);
+	grunt.registerTask('build', ['clean:init', 'copy:init', 'compass:clean', 'compass:prod', 'modernizr', 'useminPrepare', 'concat', 'uglify', 'usemin', 'hashres', 'clean:tidy']);
+	grunt.registerTask('develop', ['connect', 'watch']);
 };
